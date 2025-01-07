@@ -26,12 +26,13 @@ const providerMetadata = {
   },
 };
 
-const WalletConnect = () => {
+const WalletConnect = ({ navigation }: { navigation: any }) => {
   const { open, isConnected, address, provider } = useWalletConnectModal();
 
   const handleButtonPress = async () => {
     if (isConnected) {
-      return provider?.disconnect();
+      return navigation.replace("HomeScreen");
+      //   return provider?.disconnect();
     }
 
     return open();
